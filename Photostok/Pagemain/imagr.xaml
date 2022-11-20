@@ -1,0 +1,46 @@
+﻿<Page x:Class="Photostok.Pagemain.imagr"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Photostok.Pagemain"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1300"
+      Title="imagr">
+
+    <Grid Background="#FF104968">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="White" Grid.Row="1">
+            <ListView   x:Name="pan"    SelectionChanged="pan_SelectionChanged" Height="auto" VerticalAlignment="Top">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="2"  Rows="6" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding imagee}" Width="530" Height="300" />
+                            <Label Style="{StaticResource laa}" Content="Название"></Label>
+                            <TextBlock Text="{Binding name}"  Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Имя фотографа"></Label>
+                            <TextBlock Text="{Binding nameFhotograf}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="iso"></Label>
+                            <TextBlock Text="{Binding iso}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Диофрагма"></Label>
+                            <TextBlock Text="{Binding diofragma}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Выдержка"></Label>
+                            <TextBlock Text="{Binding vadergka}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Цена"></Label>
+                            <TextBlock Text="{Binding price}"  Style="{StaticResource teqw}" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Frame x:Name="f" Navigated="f_Navigated"></Frame>
+        </Grid>
+    </Grid>
+</Page>

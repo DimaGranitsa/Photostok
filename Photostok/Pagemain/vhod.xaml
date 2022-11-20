@@ -1,0 +1,58 @@
+﻿<Page x:Class="Photostok.Pagemain.vhod"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Photostok.Pagemain"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1300"
+      Title="vhod">
+
+    <Grid Background="#FF000C7C">
+      
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="2">
+            <Button x:Name="назад" Click="назад_Click" Content="Назад" Height="50" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left"></Button>
+        </Grid>
+         <Grid Grid.Column="0">
+            <Frame x:Name="f" Navigated="f_Navigated"></Frame>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Login" Style="{StaticResource la}" Grid.Row="1" Height="100"></Label>
+                <Label Content="Password" Style="{StaticResource la}" Grid.Row="3"></Label>
+                <TextBox Style="{StaticResource textbox}" Grid.Row="2" Height="50"></TextBox>
+                <PasswordBox Style="{StaticResource pasford}" Grid.Row="4" Height="50"></PasswordBox>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button Style="{StaticResource b}" Content="Вход"  Name="vhode" Click="vhode_Click"  Grid.Column="0"></Button>
+                       
+                    </Grid>
+                    <Grid Grid.Column="1">
+                    <Button Style="{StaticResource b}" Content="Регистрация" Name="red" Click="red_Click" Grid.Column="1"></Button>
+
+                    </Grid>
+            </Grid>
+            </Grid>
+        </Grid>
+        <Frame x:Name="p" Grid.ColumnSpan="3" Navigated="p_Navigated"></Frame>
+
+    </Grid>
+    
+</Page>

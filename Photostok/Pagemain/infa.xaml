@@ -1,0 +1,77 @@
+﻿<Window x:Class="Photostok.Pagemain.infa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Photostok.Pagemain"
+        mc:Ignorable="d"
+        Title="infa" Height="800" Width="1300">
+  
+
+    <Grid>
+
+        <Grid Background="#FF0F0080">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="300"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" CornerRadius="10">
+                    <Button Width="350" x:Name="vkar" Content="Добавить в карзину" FontSize="30" Click="vkar_Click" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources></Button>
+                </Border>
+            </Grid>
+           
+            <Border Grid.Column="0"   BorderThickness="30"  CornerRadius="20" HorizontalAlignment="Left" Margin="5,5,0,5" MinWidth="400" Width="638" BorderBrush="Black" >
+                <Image   Source="{Binding imagee}" x:Name="IPicture" Width="600" />
+            </Border>
+            <Grid Grid.Column="1" Grid.RowSpan="2">
+                <StackPanel Width="630" >
+                    <Label Style="{StaticResource laaa}" Content="Название"></Label>
+                    <Border Background="White" BorderBrush="Red" Grid.Row="0" BorderThickness="2" CornerRadius="10">
+                        <TextBlock Text="{Binding name}"   Style="{StaticResource teqw}" ></TextBlock>
+                    </Border>
+                    <Label Style="{StaticResource laaa}" Content="Имя фотографа"></Label>
+                    <Border Background="White" BorderBrush="Red" Grid.Row="1" BorderThickness="2" CornerRadius="10">
+                        <TextBlock Text="{Binding nameFhotograf}" Style="{StaticResource teqw}"  ></TextBlock>
+                    </Border>
+                    <Label Style="{StaticResource laaa}" Content="Теретория"></Label>
+                    <Border Background="White" BorderBrush="Red" Grid.Row="2" BorderThickness="2" CornerRadius="10">
+                        <TextBlock Text="{Binding teretory}" Style="{StaticResource teqw}"  ></TextBlock>
+                    </Border>
+                    <Label Style="{StaticResource laaa}" Content="iso"></Label>
+                    <Border Background="White" BorderBrush="Red" Grid.Row="3" BorderThickness="2" CornerRadius="10">
+                        <TextBlock Text="{Binding iso}" Style="{StaticResource teqw}"  ></TextBlock>
+                    </Border>
+                    <Label Style="{StaticResource laaa}" Content="Теретория"></Label>
+                    <Border Background="White" BorderBrush="Red" Grid.Row="4" BorderThickness="2" CornerRadius="10">
+                        <TextBlock Text="{Binding diofragma}" Style="{StaticResource teqw}" ></TextBlock>
+                    </Border>
+                    <Label Style="{StaticResource laaa}" Content="Диофрагма"></Label>
+                    <Border Background="White" BorderBrush="Red" Grid.Row="4" BorderThickness="2" CornerRadius="10">
+                        <TextBlock Text="{Binding vadergka}" Style="{StaticResource teqw}"  ></TextBlock>
+                    </Border>
+                    <Label Style="{StaticResource laaa}" Content="Цена"></Label>
+                    <Border Background="White" BorderBrush="Red" Grid.Row="6" BorderThickness="5" CornerRadius="10">
+                        <TextBlock Text="{Binding price}" Style="{StaticResource teqw}"  ></TextBlock>
+                    </Border>
+                </StackPanel>
+                <Border BorderBrush="SeaGreen" BorderThickness="10">
+                    
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Page x:Class="Photostok.Pagemain.reg"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Photostok.Pagemain"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="300"
+      Title="reg">
+
+    <Grid>
+        <Grid>
+   
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Login" Style="{StaticResource la}" Grid.Row="1" Height="100"></Label>
+        <Label Content="Password" Style="{StaticResource la}" Grid.Row="3"></Label>
+        <TextBox Style="{StaticResource textbox}" Grid.Row="2" Height="50"></TextBox>
+        <TextBox Style="{StaticResource textbox}" Grid.Row="4" Height="50"></TextBox>
+            <Button Style="{StaticResource b}" Grid.Row="5" Margin="20" Content="добавить" Name="dob" Click="dob_Click" ></Button>
+    </Grid>
+    </Grid>
+</Page>

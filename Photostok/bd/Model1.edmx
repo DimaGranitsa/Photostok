@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище imageModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IDUser" Type="int" />
+          <Property Name="IDimage" Type="int" />
+          <Property Name="IDhistory" Type="int" />
+          <Property Name="IDnamefotograf" Type="int" />
+          <Property Name="IDteretory" Type="int" />
+          <Property Name="User1" Type="nvarchar" MaxLength="50" />
+          <Property Name="image1" Type="nvarchar" MaxLength="50" />
+          <Property Name="history1" Type="nvarchar" MaxLength="50" />
+          <Property Name="namefotograf1" Type="nvarchar" MaxLength="50" />
+          <Property Name="teretory1" Type="nvarchar" MaxLength="50" />
+          <Property Name="histori1" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="imagee" Type="text" />
+          <Property Name="nameFhotograf" Type="nvarchar" MaxLength="50" />
+          <Property Name="teretory" Type="nvarchar" MaxLength="50" />
+          <Property Name="idUser" Type="int" />
+          <Property Name="iso" Type="nvarchar" MaxLength="50" />
+          <Property Name="diofragma" Type="nvarchar" MaxLength="50" />
+          <Property Name="vadergka" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="karzina">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IDUser" Type="int" />
+          <Property Name="IDimage" Type="int" />
+          <Property Name="IDhistory" Type="int" />
+          <Property Name="IDnamefotograf" Type="int" />
+          <Property Name="IDteretory" Type="int" />
+          <Property Name="User1" Type="nvarchar" MaxLength="50" />
+          <Property Name="image1" Type="nvarchar" MaxLength="50" />
+          <Property Name="history1" Type="nvarchar" MaxLength="50" />
+          <Property Name="namefotograf1" Type="nvarchar" MaxLength="50" />
+          <Property Name="teretory1" Type="nvarchar" MaxLength="50" />
+          <Property Name="histori1" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAme" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="karzinaID" Type="int" />
+          <Property Name="historyid" Type="int" />
+          <Property Name="idUser" Type="int" />
+        </EntityType>
+        <Association Name="FK_image_user1">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="image" Type="Self.image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="image">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_karzina_image">
+          <End Role="image" Type="Self.image" Multiplicity="0..1" />
+          <End Role="karzina" Type="Self.karzina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="image">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="karzina">
+              <PropertyRef Name="IDimage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище imageModelContainer">
+          <EntitySet Name="history" EntityType="Self.history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="image" EntityType="Self.image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="karzina" EntityType="Self.karzina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_image_user1" Association="Self.FK_image_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="image" EntitySet="image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_karzina_image" Association="Self.FK_karzina_image">
+            <End Role="image" EntitySet="image" />
+            <End Role="karzina" EntitySet="karzina" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="imageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" />
+          <Property Name="IDimage" Type="Int32" />
+          <Property Name="IDhistory" Type="Int32" />
+          <Property Name="IDnamefotograf" Type="Int32" />
+          <Property Name="IDteretory" Type="Int32" />
+          <Property Name="User1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="history1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="namefotograf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="teretory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="histori1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imagee" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nameFhotograf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="teretory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idUser" Type="Int32" />
+          <NavigationProperty Name="user" Relationship="Self.FK_image_user1" FromRole="image" ToRole="user" />
+          <NavigationProperty Name="karzina" Relationship="Self.FK_karzina_image" FromRole="image" ToRole="karzina" />
+          <Property Name="iso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diofragma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vadergka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="karzina">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" />
+          <Property Name="IDimage" Type="Int32" />
+          <Property Name="IDhistory" Type="Int32" />
+          <Property Name="IDnamefotograf" Type="Int32" />
+          <Property Name="IDteretory" Type="Int32" />
+          <Property Name="User1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="history1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="namefotograf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="teretory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="histori1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="image" Relationship="Self.FK_karzina_image" FromRole="karzina" ToRole="image" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="karzinaID" Type="Int32" />
+          <Property Name="historyid" Type="Int32" />
+          <Property Name="idUser" Type="Int32" />
+          <NavigationProperty Name="image" Relationship="Self.FK_image_user1" FromRole="user" ToRole="image" />
+        </EntityType>
+        <Association Name="FK_image_user1">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="image" Type="Self.image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="image">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_karzina_image">
+          <End Role="image" Type="Self.image" Multiplicity="0..1" />
+          <End Role="karzina" Type="Self.karzina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="image">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="karzina">
+              <PropertyRef Name="IDimage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="imageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="history" EntityType="Self.history" />
+          <EntitySet Name="image" EntityType="Self.image" />
+          <EntitySet Name="karzina" EntityType="Self.karzina" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <AssociationSet Name="FK_image_user1" Association="Self.FK_image_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="image" EntitySet="image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_karzina_image" Association="Self.FK_karzina_image">
+            <End Role="image" EntitySet="image" />
+            <End Role="karzina" EntitySet="karzina" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище imageModelContainer" CdmEntityContainer="imageEntities">
+          <EntitySetMapping Name="history">
+            <EntityTypeMapping TypeName="imageModel.history">
+              <MappingFragment StoreEntitySet="history">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="IDimage" ColumnName="IDimage" />
+                <ScalarProperty Name="IDhistory" ColumnName="IDhistory" />
+                <ScalarProperty Name="IDnamefotograf" ColumnName="IDnamefotograf" />
+                <ScalarProperty Name="IDteretory" ColumnName="IDteretory" />
+                <ScalarProperty Name="User1" ColumnName="User1" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
+                <ScalarProperty Name="history1" ColumnName="history1" />
+                <ScalarProperty Name="namefotograf1" ColumnName="namefotograf1" />
+                <ScalarProperty Name="teretory1" ColumnName="teretory1" />
+                <ScalarProperty Name="histori1" ColumnName="histori1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="image">
+            <EntityTypeMapping TypeName="imageModel.image">
+              <MappingFragment StoreEntitySet="image">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="vadergka" ColumnName="vadergka" />
+                <ScalarProperty Name="diofragma" ColumnName="diofragma" />
+                <ScalarProperty Name="iso" ColumnName="iso" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="imagee" ColumnName="imagee" />
+                <ScalarProperty Name="nameFhotograf" ColumnName="nameFhotograf" />
+                <ScalarProperty Name="teretory" ColumnName="teretory" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="karzina">
+            <EntityTypeMapping TypeName="imageModel.karzina">
+              <MappingFragment StoreEntitySet="karzina">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="IDimage" ColumnName="IDimage" />
+                <ScalarProperty Name="IDhistory" ColumnName="IDhistory" />
+                <ScalarProperty Name="IDnamefotograf" ColumnName="IDnamefotograf" />
+                <ScalarProperty Name="IDteretory" ColumnName="IDteretory" />
+                <ScalarProperty Name="User1" ColumnName="User1" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
+                <ScalarProperty Name="history1" ColumnName="history1" />
+                <ScalarProperty Name="namefotograf1" ColumnName="namefotograf1" />
+                <ScalarProperty Name="teretory1" ColumnName="teretory1" />
+                <ScalarProperty Name="histori1" ColumnName="histori1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="imageModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="imageModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NAme" ColumnName="NAme" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="karzinaID" ColumnName="karzinaID" />
+                <ScalarProperty Name="historyid" ColumnName="historyid" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,46 @@
+﻿<Page x:Class="Photostok.Pagemain.mainPAge"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Photostok.Pagemain"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="mainPAge">
+
+    <Grid Background="#FF00ACFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Frame x:Name="f" Navigated="f_Navigated"></Frame>
+        </Grid>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="PhotoStock" Style="{StaticResource la}" HorizontalAlignment="Center" Grid.Row="0"></Label>
+            <Label Content="Фото" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="1"></Label>
+            <Label Content="Редактирование" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="3"></Label>
+            <Label Content="Личный кабинет" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="11"></Label>
+            <Label Content="карзина" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="5"></Label>
+            <Button Grid.Row="2" Name="foto" Click="foto_Click" Content="Перейти смотреть фото" Margin="11" Style="{StaticResource b}"></Button>
+            <Button Grid.Row="6" Name="kar" Click="kar_Click" Content="Карзина" Margin="11" Style="{StaticResource b}"></Button>
+            <Button Grid.Row="4" Name="redact" Click="redact_Click" Content="Редактирование" Margin="11" Style="{StaticResource b}"></Button>
+            <Button Grid.Row="12" Name="lic" Click="lic_Click" Content="Личный кабинет" Margin="11" Style="{StaticResource b}"></Button>
+        </Grid>
+    </Grid>
+</Page>
