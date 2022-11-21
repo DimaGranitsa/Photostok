@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photostok.bd;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,8 @@ namespace Photostok.Pagemain
             else
             {
                 var a = bd.COnnekc.photostok.User.Where(z => z.Login == log.Text && z.password == pass.Password).FirstOrDefault();
+                //var b = a.Name.FirstOrDefault();
+                //aktual.Id_User = a.id;
                 if (a != null)
                 {
                     p.Navigate(new lik());

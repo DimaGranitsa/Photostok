@@ -14,6 +14,12 @@ namespace Photostok.bd
     
     public partial class BAsket
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BAsket()
+        {
+            this.User = new HashSet<User>();
+        }
+    
         public int ID { get; set; }
         public string User1 { get; set; }
         public string image1 { get; set; }
@@ -21,8 +27,11 @@ namespace Photostok.bd
         public Nullable<int> IDIMage { get; set; }
         public Nullable<int> Idhistory { get; set; }
         public string Prise { get; set; }
+        public byte[] imageq { get; set; }
     
         public virtual History History { get; set; }
-        public virtual Image Image { get; set; }
+        public virtual photo photo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
     }
 }

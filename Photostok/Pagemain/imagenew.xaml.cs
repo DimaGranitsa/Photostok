@@ -1,5 +1,4 @@
-﻿using Photostok.bd;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,26 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-
 namespace Photostok.Pagemain
 {
     /// <summary>
-    /// Логика взаимодействия для infa.xaml
+    /// Логика взаимодействия для imagenew.xaml
     /// </summary>
-    public partial class infa : Window
+    public partial class imagenew : Window
     {
-        public static bd.photo image;
-
-        public infa(bd.photo image)
+        public static bd.photoq image;
+        public imagenew(bd.photoq image)
         {
             InitializeComponent();
             this.DataContext = image;
-      
-            bd.photo w;
+            bd.photoq w;
             w = image;
-           
         }
+        public void e()
+        {
 
+        }
         private void vkar_Click(object sender, RoutedEventArgs e)
         {
             bd.BAsket q = new bd.BAsket()
@@ -41,7 +39,8 @@ namespace Photostok.Pagemain
                 image1 = IPicture.ToString(),
                 Prise = priceq.Text,
                 User1 = nameq.Text,
-                  };
+           
+            };
             bd.COnnekc.photostok.BAsket.Add(q);
             bd.COnnekc.photostok.SaveChanges();
         }

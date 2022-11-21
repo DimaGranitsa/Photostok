@@ -20,6 +20,7 @@ namespace Photostok.bd
             this.BAsket = new HashSet<BAsket>();
         }
     
+        public Nullable<int> iduser { get; set; }
         public int ID { get; set; }
         public string User1 { get; set; }
         public string image1 { get; set; }

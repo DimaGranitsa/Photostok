@@ -11,16 +11,46 @@
     <Grid Background="#FF104968">
        
         <Grid Background="White" Grid.Row="1">
-            <ListView   x:Name="pan"    SelectionChanged="pan_SelectionChanged" Height="auto" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListView   x:Name="pan"  Grid.Column="0"   SelectionChanged="pan_SelectionChanged" Height="auto" VerticalAlignment="Top">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="2"  Rows="6" />
+                        <UniformGrid Columns="1"  Rows="10" />
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Image Source="{Binding imagee}" Width="530" Height="300" />
+                            <Image Source="{Binding image}" Width="530" Height="300" />
+                            <Label Style="{StaticResource laa}" Content="Название"></Label>
+                            <TextBlock Text="{Binding name}"  Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Имя фотографа"></Label>
+                            <TextBlock Text="{Binding nameFhotograf}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="iso"></Label>
+                            <TextBlock Text="{Binding iso}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Диофрагма"></Label>
+                            <TextBlock Text="{Binding diofragma}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Выдержка"></Label>
+                            <TextBlock Text="{Binding vadergka}" Style="{StaticResource teqw}" ></TextBlock>
+                            <Label Style="{StaticResource laa}" Content="Цена"></Label>
+                            <TextBlock Text="{Binding price}"  Style="{StaticResource teqw}" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView   x:Name="paan" Grid.Column="2"   SelectionChanged="paan_SelectionChanged" Height="auto" VerticalAlignment="Top">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="1"  Rows="10" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding image}" Width="530" Height="300" />
                             <Label Style="{StaticResource laa}" Content="Название"></Label>
                             <TextBlock Text="{Binding name}"  Style="{StaticResource teqw}" ></TextBlock>
                             <Label Style="{StaticResource laa}" Content="Имя фотографа"></Label>

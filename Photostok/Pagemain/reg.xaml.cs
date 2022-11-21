@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace Photostok.Pagemain
 {
@@ -27,7 +28,20 @@ namespace Photostok.Pagemain
 
         private void dob_Click(object sender, RoutedEventArgs e)
         {
-            
+            bd.User q = new bd.User()
+            {
+               Login = log.Text,
+               password = pass.Text,
+               NAme = name.Text,
+
+            };
+            bd.COnnekc.photostok.User.Add(q);
+            bd.COnnekc.photostok.SaveChanges();
+        }
+
+        private void name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

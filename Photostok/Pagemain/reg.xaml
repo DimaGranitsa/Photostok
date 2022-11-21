@@ -18,12 +18,18 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Content="Login" Style="{StaticResource la}" Grid.Row="1" Height="100"></Label>
         <Label Content="Password" Style="{StaticResource la}" Grid.Row="3"></Label>
-        <TextBox Style="{StaticResource textbox}" Grid.Row="2" Height="50"></TextBox>
-        <TextBox Style="{StaticResource textbox}" Grid.Row="4" Height="50"></TextBox>
-            <Button Style="{StaticResource b}" Grid.Row="5" Margin="20" Content="добавить" Name="dob" Click="dob_Click" ></Button>
+        <Label Content="Name" Style="{StaticResource la}" Grid.Row="5"></Label>
+        <TextBox Style="{StaticResource textbox}" Grid.Row="2" Height="50" x:Name="log"></TextBox>
+        <TextBox Style="{StaticResource textbox}" Grid.Row="6" Height="50" x:Name="name" TextChanged="name_TextChanged"></TextBox>
+        <TextBox Style="{StaticResource textbox}" Grid.Row="4" Height="50" x:Name="pass"></TextBox>
+            <Button Style="{StaticResource b}" Grid.Row="9" Margin="20" Content="добавить" Name="dob" Click="dob_Click" ></Button>
     </Grid>
     </Grid>
 </Page>

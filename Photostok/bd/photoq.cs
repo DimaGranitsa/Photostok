@@ -12,16 +12,16 @@ namespace Photostok.bd
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class photoq
     {
-        public int Id { get; set; }
-        public string NAme { get; set; }
-        public string Login { get; set; }
-        public string password { get; set; }
-        public Nullable<int> karzinaID { get; set; }
-        public Nullable<int> IDbasket { get; set; }
-        public Nullable<int> historyid { get; set; }
-    
-        public virtual BAsket BAsket { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string nameFhotograf { get; set; }
+        public string teretory { get; set; }
+        public string iso { get; set; }
+        public string diofragma { get; set; }
+        public string vadergka { get; set; }
+        public string price { get; set; }
+        public byte[] image { get; set; }
     }
 }

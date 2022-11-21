@@ -26,13 +26,14 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Border Grid.ColumnSpan="2"   BorderThickness="30"  CornerRadius="20" HorizontalAlignment="Center" Margin="20" MinWidth="400" Width="500" BorderBrush="Black" >
-                <Image   Source="{Binding imagee}" x:Name="IPicture" Width="500" />
+                <Image   Source="{Binding imagee}" x:Name="IPicture" Width="440" />
             </Border>
             <Grid Grid.Row="1" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="namephoto"></TextBox>
                 <Label Content="Имя фотографии" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="0">
@@ -41,6 +42,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Имя Фотографа" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="namefotogrof"></TextBox>
 
             </Grid>
             <Grid Grid.Row="3" Grid.Column="0">
@@ -48,12 +50,18 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label Content="Теретория" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="teretory"></TextBox>
+
             </Grid>
             <Grid Grid.Row="4" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label Content="Iso" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="Isoo"></TextBox>
+
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
@@ -61,24 +69,35 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label Content="Диофрагма" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="diofrag"></TextBox>
+
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label Content="Выдержка" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="vadergka"></TextBox>
+
             </Grid>
             <Grid Grid.Row="3" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label Content="айдифотографа" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="idf"></TextBox>
+
             </Grid>
             <Grid Grid.Row="4" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label Content="Цена" Style="{StaticResource laaaa}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Style="{StaticResource textboxx}" x:Name="Cena"></TextBox>
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
@@ -93,14 +112,14 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Margin="15" Width="200" Style="{StaticResource b}"  Content="Открыть" >
+            <Button Margin="15" Width="200" Style="{StaticResource b}" Name="soh" Click="soh_Click"  Content="Открыть" >
                 <Button.Resources>
                     <Style  TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Margin="15 " Width="200" Style="{StaticResource b}" Grid.Row="1"  Content="сохранить" >
+            <Button Margin="15 " Width="200" Style="{StaticResource b}" Grid.Row="1"  Content="сохранить" Click="Button_Click" >
                 <Button.Resources>
                     <Style  TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>

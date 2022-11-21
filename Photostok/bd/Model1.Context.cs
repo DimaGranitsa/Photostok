@@ -27,8 +27,9 @@ namespace Photostok.bd
     
         public virtual DbSet<BAsket> BAsket { get; set; }
         public virtual DbSet<History> History { get; set; }
-        public virtual DbSet<Image> Image { get; set; }
+        public virtual DbSet<photo> photo { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<photoq> photoq { get; set; }
     }
 }

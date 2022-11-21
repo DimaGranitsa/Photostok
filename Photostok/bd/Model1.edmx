@@ -16,26 +16,27 @@
           <Property Name="IDIMage" Type="int" />
           <Property Name="Idhistory" Type="int" />
           <Property Name="Prise" Type="nvarchar" MaxLength="50" />
+          <Property Name="imageq" Type="image" />
         </EntityType>
         <EntityType Name="History">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
+          <Property Name="iduser" Type="int" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="User1" Type="nvarchar" MaxLength="50" />
+          <Property Name="User1" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="image1" Type="nvarchar" MaxLength="50" />
           <Property Name="history1" Type="nvarchar" MaxLength="50" />
           <Property Name="namefotograf1" Type="nvarchar" MaxLength="50" />
           <Property Name="teretory1" Type="nvarchar" MaxLength="50" />
           <Property Name="histori1" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Image">
+        <EntityType Name="photo">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" />
-          <Property Name="imagee" Type="text" />
           <Property Name="nameFhotograf" Type="nvarchar" MaxLength="50" />
           <Property Name="teretory" Type="nvarchar" MaxLength="50" />
           <Property Name="idUser" Type="int" />
@@ -43,6 +44,21 @@
           <Property Name="diofragma" Type="nvarchar" MaxLength="50" />
           <Property Name="vadergka" Type="nvarchar" MaxLength="50" />
           <Property Name="price" Type="nvarchar" MaxLength="50" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="photoq">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="nameFhotograf" Type="nvarchar" MaxLength="50" />
+          <Property Name="teretory" Type="nvarchar" MaxLength="50" />
+          <Property Name="iso" Type="nvarchar" MaxLength="50" />
+          <Property Name="diofragma" Type="nvarchar" MaxLength="50" />
+          <Property Name="vadergka" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="nvarchar" MaxLength="50" />
+          <Property Name="image" Type="image" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -63,8 +79,8 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="password" Type="nvarchar" MaxLength="50" />
           <Property Name="karzinaID" Type="int" />
+          <Property Name="IDbasket" Type="int" />
           <Property Name="historyid" Type="int" />
-          <Property Name="idUser" Type="int" />
         </EntityType>
         <Association Name="FK_BAsket_History">
           <End Role="History" Type="Self.History" Multiplicity="0..1" />
@@ -78,11 +94,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BAsket_Image">
-          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+        <Association Name="FK_BAsket_photo">
+          <End Role="photo" Type="Self.photo" Multiplicity="0..1" />
           <End Role="BAsket" Type="Self.BAsket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Image">
+            <Principal Role="photo">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="BAsket">
@@ -90,34 +106,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Image">
-          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+        <Association Name="FK_User_BAsket">
+          <End Role="BAsket" Type="Self.BAsket" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Image">
-              <PropertyRef Name="id" />
+            <Principal Role="BAsket">
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="idUser" />
+              <PropertyRef Name="IDbasket" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище PhotostokModelContainer">
           <EntitySet Name="BAsket" EntityType="Self.BAsket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="photo" EntityType="Self.photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="photoq" EntityType="Self.photoq" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BAsket_History" Association="Self.FK_BAsket_History">
             <End Role="History" EntitySet="History" />
             <End Role="BAsket" EntitySet="BAsket" />
           </AssociationSet>
-          <AssociationSet Name="FK_BAsket_Image" Association="Self.FK_BAsket_Image">
-            <End Role="Image" EntitySet="Image" />
+          <AssociationSet Name="FK_BAsket_photo" Association="Self.FK_BAsket_photo">
+            <End Role="photo" EntitySet="photo" />
             <End Role="BAsket" EntitySet="BAsket" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Image" Association="Self.FK_User_Image">
-            <End Role="Image" EntitySet="Image" />
+          <AssociationSet Name="FK_User_BAsket" Association="Self.FK_User_BAsket">
+            <End Role="BAsket" EntitySet="BAsket" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -125,25 +142,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PhotostokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="PhotostokEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BAsket" EntityType="PhotostokModel.BAsket" />
-          <EntitySet Name="History" EntityType="PhotostokModel.History" />
-          <EntitySet Name="Image" EntityType="PhotostokModel.Image" />
-          <EntitySet Name="sysdiagrams" EntityType="PhotostokModel.sysdiagrams" />
-          <EntitySet Name="User" EntityType="PhotostokModel.User" />
-          <AssociationSet Name="FK_BAsket_History" Association="PhotostokModel.FK_BAsket_History">
-            <End Role="History" EntitySet="History" />
-            <End Role="BAsket" EntitySet="BAsket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BAsket_Image" Association="PhotostokModel.FK_BAsket_Image">
-            <End Role="Image" EntitySet="Image" />
-            <End Role="BAsket" EntitySet="BAsket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Image" Association="PhotostokModel.FK_User_Image">
-            <End Role="Image" EntitySet="Image" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="BAsket">
           <Key>
             <PropertyRef Name="ID" />
@@ -155,29 +153,31 @@
           <Property Name="IDIMage" Type="Int32" />
           <Property Name="Idhistory" Type="Int32" />
           <Property Name="Prise" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="History" Relationship="PhotostokModel.FK_BAsket_History" FromRole="BAsket" ToRole="History" />
-          <NavigationProperty Name="Image" Relationship="PhotostokModel.FK_BAsket_Image" FromRole="BAsket" ToRole="Image" />
+          <NavigationProperty Name="History" Relationship="Self.FK_BAsket_History" FromRole="BAsket" ToRole="History" />
+          <NavigationProperty Name="photo" Relationship="Self.FK_BAsket_photo" FromRole="BAsket" ToRole="photo" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_BAsket" FromRole="BAsket" ToRole="User" />
+          <Property Name="imageq" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="History">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
+          <Property Name="iduser" Type="Int32" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="User1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="history1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="namefotograf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="teretory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="histori1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BAsket" Relationship="PhotostokModel.FK_BAsket_History" FromRole="History" ToRole="BAsket" />
+          <NavigationProperty Name="BAsket" Relationship="Self.FK_BAsket_History" FromRole="History" ToRole="BAsket" />
         </EntityType>
-        <EntityType Name="Image">
+        <EntityType Name="photo">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="imagee" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="nameFhotograf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="teretory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="idUser" Type="Int32" />
@@ -185,14 +185,14 @@
           <Property Name="diofragma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="vadergka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BAsket" Relationship="PhotostokModel.FK_BAsket_Image" FromRole="Image" ToRole="BAsket" />
-          <NavigationProperty Name="User" Relationship="PhotostokModel.FK_User_Image" FromRole="Image" ToRole="User" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BAsket" Relationship="Self.FK_BAsket_photo" FromRole="photo" ToRole="BAsket" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -207,13 +207,13 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="karzinaID" Type="Int32" />
+          <Property Name="IDbasket" Type="Int32" />
           <Property Name="historyid" Type="Int32" />
-          <Property Name="idUser" Type="Int32" />
-          <NavigationProperty Name="Image" Relationship="PhotostokModel.FK_User_Image" FromRole="User" ToRole="Image" />
+          <NavigationProperty Name="BAsket" Relationship="Self.FK_User_BAsket" FromRole="User" ToRole="BAsket" />
         </EntityType>
         <Association Name="FK_BAsket_History">
-          <End Type="PhotostokModel.History" Role="History" Multiplicity="0..1" />
-          <End Type="PhotostokModel.BAsket" Role="BAsket" Multiplicity="*" />
+          <End Role="History" Type="Self.History" Multiplicity="0..1" />
+          <End Role="BAsket" Type="Self.BAsket" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="History">
               <PropertyRef Name="ID" />
@@ -223,11 +223,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BAsket_Image">
-          <End Type="PhotostokModel.Image" Role="Image" Multiplicity="0..1" />
-          <End Type="PhotostokModel.BAsket" Role="BAsket" Multiplicity="*" />
+        <Association Name="FK_BAsket_photo">
+          <End Role="photo" Type="Self.photo" Multiplicity="0..1" />
+          <End Role="BAsket" Type="Self.BAsket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Image">
+            <Principal Role="photo">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="BAsket">
@@ -235,18 +235,52 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Image">
-          <End Type="PhotostokModel.Image" Role="Image" Multiplicity="0..1" />
-          <End Type="PhotostokModel.User" Role="User" Multiplicity="*" />
+        <Association Name="FK_User_BAsket">
+          <End Role="BAsket" Type="Self.BAsket" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Image">
-              <PropertyRef Name="id" />
+            <Principal Role="BAsket">
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="idUser" />
+              <PropertyRef Name="IDbasket" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="PhotostokEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BAsket" EntityType="Self.BAsket" />
+          <EntitySet Name="History" EntityType="Self.History" />
+          <EntitySet Name="photo" EntityType="Self.photo" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_BAsket_History" Association="Self.FK_BAsket_History">
+            <End Role="History" EntitySet="History" />
+            <End Role="BAsket" EntitySet="BAsket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BAsket_photo" Association="Self.FK_BAsket_photo">
+            <End Role="photo" EntitySet="photo" />
+            <End Role="BAsket" EntitySet="BAsket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_BAsket" Association="Self.FK_User_BAsket">
+            <End Role="BAsket" EntitySet="BAsket" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="photoq" EntityType="PhotostokModel.photoq" />
+        </EntityContainer>
+        <EntityType Name="photoq">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nameFhotograf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="teretory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diofragma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vadergka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -256,66 +290,83 @@
           <EntitySetMapping Name="BAsket">
             <EntityTypeMapping TypeName="PhotostokModel.BAsket">
               <MappingFragment StoreEntitySet="BAsket">
-                <ScalarProperty Name="Prise" ColumnName="Prise" />
-                <ScalarProperty Name="Idhistory" ColumnName="Idhistory" />
-                <ScalarProperty Name="IDIMage" ColumnName="IDIMage" />
-                <ScalarProperty Name="namefotograf1" ColumnName="namefotograf1" />
-                <ScalarProperty Name="image1" ColumnName="image1" />
-                <ScalarProperty Name="User1" ColumnName="User1" />
+                <ScalarProperty Name="imageq" ColumnName="imageq" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="User1" ColumnName="User1" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
+                <ScalarProperty Name="namefotograf1" ColumnName="namefotograf1" />
+                <ScalarProperty Name="IDIMage" ColumnName="IDIMage" />
+                <ScalarProperty Name="Idhistory" ColumnName="Idhistory" />
+                <ScalarProperty Name="Prise" ColumnName="Prise" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="History">
             <EntityTypeMapping TypeName="PhotostokModel.History">
               <MappingFragment StoreEntitySet="History">
-                <ScalarProperty Name="histori1" ColumnName="histori1" />
-                <ScalarProperty Name="teretory1" ColumnName="teretory1" />
-                <ScalarProperty Name="namefotograf1" ColumnName="namefotograf1" />
-                <ScalarProperty Name="history1" ColumnName="history1" />
-                <ScalarProperty Name="image1" ColumnName="image1" />
-                <ScalarProperty Name="User1" ColumnName="User1" />
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="User1" ColumnName="User1" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
+                <ScalarProperty Name="history1" ColumnName="history1" />
+                <ScalarProperty Name="namefotograf1" ColumnName="namefotograf1" />
+                <ScalarProperty Name="teretory1" ColumnName="teretory1" />
+                <ScalarProperty Name="histori1" ColumnName="histori1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Image">
-            <EntityTypeMapping TypeName="PhotostokModel.Image">
-              <MappingFragment StoreEntitySet="Image">
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="vadergka" ColumnName="vadergka" />
-                <ScalarProperty Name="diofragma" ColumnName="diofragma" />
-                <ScalarProperty Name="iso" ColumnName="iso" />
-                <ScalarProperty Name="idUser" ColumnName="idUser" />
-                <ScalarProperty Name="teretory" ColumnName="teretory" />
-                <ScalarProperty Name="nameFhotograf" ColumnName="nameFhotograf" />
-                <ScalarProperty Name="imagee" ColumnName="imagee" />
-                <ScalarProperty Name="name" ColumnName="name" />
+          <EntitySetMapping Name="photo">
+            <EntityTypeMapping TypeName="PhotostokModel.photo">
+              <MappingFragment StoreEntitySet="photo">
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="nameFhotograf" ColumnName="nameFhotograf" />
+                <ScalarProperty Name="teretory" ColumnName="teretory" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="iso" ColumnName="iso" />
+                <ScalarProperty Name="diofragma" ColumnName="diofragma" />
+                <ScalarProperty Name="vadergka" ColumnName="vadergka" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="image" ColumnName="image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="PhotostokModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="PhotostokModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="idUser" ColumnName="idUser" />
-                <ScalarProperty Name="historyid" ColumnName="historyid" />
-                <ScalarProperty Name="karzinaID" ColumnName="karzinaID" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="NAme" ColumnName="NAme" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NAme" ColumnName="NAme" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="karzinaID" ColumnName="karzinaID" />
+                <ScalarProperty Name="IDbasket" ColumnName="IDbasket" />
+                <ScalarProperty Name="historyid" ColumnName="historyid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="photoq">
+            <EntityTypeMapping TypeName="PhotostokModel.photoq">
+              <MappingFragment StoreEntitySet="photoq">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="vadergka" ColumnName="vadergka" />
+                <ScalarProperty Name="diofragma" ColumnName="diofragma" />
+                <ScalarProperty Name="iso" ColumnName="iso" />
+                <ScalarProperty Name="teretory" ColumnName="teretory" />
+                <ScalarProperty Name="nameFhotograf" ColumnName="nameFhotograf" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

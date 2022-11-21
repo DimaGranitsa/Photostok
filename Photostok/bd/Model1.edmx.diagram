@@ -4,15 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3d52fbafc4e84a09bddb9ab0a7dfc604" Name="Diagram1" ZoomLevel="83">
-        <EntityTypeShape EntityType="PhotostokModel.BAsket" Width="1.5" PointX="3" PointY="4.625" />
-        <EntityTypeShape EntityType="PhotostokModel.History" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PhotostokModel.Image" Width="1.5" PointX="0.75" PointY="4.375" />
-        <EntityTypeShape EntityType="PhotostokModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.625" />
-        <EntityTypeShape EntityType="PhotostokModel.User" Width="1.5" PointX="3" PointY="8.25" />
-        <AssociationConnector Association="PhotostokModel.FK_BAsket_History" />
-        <AssociationConnector Association="PhotostokModel.FK_BAsket_Image" />
-        <AssociationConnector Association="PhotostokModel.FK_User_Image" />
+      <Diagram DiagramId="04409ea9bbeb4ff0a083d304af30194d" Name="Diagram1">
+        <EntityTypeShape EntityType="PhotostokModel.BAsket" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotostokModel.History" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotostokModel.photo" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotostokModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotostokModel.User" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="PhotostokModel.FK_BAsket_History" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotostokModel.FK_BAsket_photo" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotostokModel.FK_User_BAsket" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PhotostokModel.photoq" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

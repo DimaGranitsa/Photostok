@@ -55,7 +55,14 @@ namespace Photostok.Pagemain
 
         private void oplatit_Click(object sender, RoutedEventArgs e)
         {
-
+            bd.History q = new bd.History()
+            {
+                namefotograf1 = ToString(),
+                image1 = ToString(),                
+                User1 = ToString(),
+            };
+            bd.COnnekc.photostok.History.Add(q);
+            bd.COnnekc.photostok.SaveChanges();
         }
     }
 }

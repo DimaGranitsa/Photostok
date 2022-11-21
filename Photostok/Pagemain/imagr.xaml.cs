@@ -23,12 +23,14 @@ namespace Photostok.Pagemain
         public imagr()
         {
             InitializeComponent();
-            pan.ItemsSource = bd.COnnekc.photostok.Image.ToList();
+            pan.ItemsSource = bd.COnnekc.photostok.photo.ToList();
+            paan.ItemsSource = bd.COnnekc.photostok.photoq.ToList();
+           
         }
 
         private void pan_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var patient = ((sender as ListView).SelectedItem as bd.Image);
+            var patient = ((sender as ListView).SelectedItem as bd.photo);
             Photostok.Pagemain.infa a = new Pagemain.infa(patient);
           a.Show();
         }
@@ -36,6 +38,13 @@ namespace Photostok.Pagemain
         private void f_Navigated(object sender, NavigationEventArgs e)
         {
 
+        }
+
+        private void paan_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var patientq = ((sender as ListView).SelectedItem as bd.photoq);
+            Photostok.Pagemain.imagenew a = new Pagemain.imagenew(patientq);
+            a.Show();
         }
     }
 }

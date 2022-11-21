@@ -31,7 +31,7 @@ namespace Photostok.Pagemain
 
         private void his_Click(object sender, RoutedEventArgs e)
         {
-            
+            f.Navigate(new Pagemain.Histor());
         }
 
         private void nazad_Click(object sender, RoutedEventArgs e)

@@ -8,7 +8,6 @@
             <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="FontSize" Value="50"></Setter>
             <Setter Property="FontFamily" Value="Times New Roman"></Setter>
-            
         </Style>
         <Style x:Key="laa" TargetType="Label">
             <Setter Property="Foreground" Value="Black"></Setter>
@@ -26,16 +25,17 @@
         </Style>
         <Style x:Key="laaaa" TargetType="Label">
             <Setter Property="Foreground" Value="Black"></Setter>
-            <Setter Property="FontSize" Value="25"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
             <Setter Property="FontFamily" Value="Times New Roman"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
         <Style x:Key="b" TargetType="Button">
-        <Setter Property="Foreground" Value="Black"></Setter>
-        <Setter Property="FontSize" Value="25"></Setter>
-        <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="FontSize" Value="25"></Setter>
+            <Setter Property="FontFamily" Value="Times New Roman"></Setter>
         </Style>
+
         <Style x:Key="textbox" TargetType="TextBox">
             <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="FontSize" Value="25"></Setter>

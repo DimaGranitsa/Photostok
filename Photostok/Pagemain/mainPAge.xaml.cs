@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photostok.bd;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace Photostok.Pagemain
         public mainPAge()
         {
             InitializeComponent();
+            //if (aktual.Id_User == 0)
+            //{
+            //    kar.IsEnabled = false;
+            //}
+            //else { kar.IsEnabled = true; }
         }
 
         private void foto_Click(object sender, RoutedEventArgs e)

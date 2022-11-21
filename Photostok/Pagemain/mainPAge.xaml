@@ -34,12 +34,12 @@
             </Grid.RowDefinitions>
             <Label Content="PhotoStock" Style="{StaticResource la}" HorizontalAlignment="Center" Grid.Row="0"></Label>
             <Label Content="Фото" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="1"></Label>
-            <Label Content="Редактирование" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="3"></Label>
+            <!--<Label Content="Редактирование" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="3"></Label>-->
             <Label Content="Личный кабинет" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="11"></Label>
-            <Label Content="карзина" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="5"></Label>
+            <Label Content="корзина" Style="{StaticResource laa}" HorizontalAlignment="Center" Grid.Row="3"></Label>
             <Button Grid.Row="2" Name="foto" Click="foto_Click" Content="Перейти смотреть фото" Margin="11" Style="{StaticResource b}"></Button>
-            <Button Grid.Row="6" Name="kar" Click="kar_Click" Content="Карзина" Margin="11" Style="{StaticResource b}"></Button>
-            <Button Grid.Row="4" Name="redact" Click="redact_Click" Content="Редактирование" Margin="11" Style="{StaticResource b}"></Button>
+            <Button Grid.Row="4" Name="kar" Click="kar_Click" Content="Корзина" Margin="11" Style="{StaticResource b}"></Button>
+            <!--<Button Grid.Row="4" Name="redact" Click="redact_Click" Content="Редактирование" Margin="11" Style="{StaticResource b}"></Button>-->
             <Button Grid.Row="12" Name="lic" Click="lic_Click" Content="Личный кабинет" Margin="11" Style="{StaticResource b}"></Button>
         </Grid>
     </Grid>
