@@ -23,12 +23,12 @@ namespace Photostok.Pagemain
         public imagr()
         {
             InitializeComponent();
-            pan.ItemsSource = bd.COnnekc.imageEntities.image.ToList();
+            pan.ItemsSource = bd.COnnekc.photostok.Image.ToList();
         }
 
         private void pan_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var patient = ((sender as ListView).SelectedItem as bd.image);
+            var patient = ((sender as ListView).SelectedItem as bd.Image);
             Photostok.Pagemain.infa a = new Pagemain.infa(patient);
           a.Show();
         }

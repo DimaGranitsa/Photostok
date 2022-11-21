@@ -9,10 +9,7 @@
       Title="imagr">
 
     <Grid Background="#FF104968">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+       
         <Grid Background="White" Grid.Row="1">
             <ListView   x:Name="pan"    SelectionChanged="pan_SelectionChanged" Height="auto" VerticalAlignment="Top">
                 <ListView.ItemsPanel>

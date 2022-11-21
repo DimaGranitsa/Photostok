@@ -20,6 +20,7 @@ namespace Photostok.Pagemain
     /// </summary>
     public partial class vhod : Page
     {
+        public static bd.User NAme ;
         public vhod()
         {
             InitializeComponent();
@@ -36,8 +37,30 @@ namespace Photostok.Pagemain
         }
 
         private void vhode_Click(object sender, RoutedEventArgs e)
-        {         
-            p.Navigate(new Pagemain.lik());
+        {
+            //p.Navigate(new Pagemain.lik());
+            if (string.IsNullOrEmpty(log.Text) || string.IsNullOrEmpty(pass.Password) )
+            {
+                MessageBox.Show("ved");
+            }
+            else
+            {
+                var a = bd.COnnekc.photostok.User.Where(z => z.Login == log.Text && z.password == pass.Password).FirstOrDefault();
+                if (a != null)
+                {
+                    p.Navigate(new lik());
+                }
+                
+                else
+                {
+                    MessageBox.Show("pass  yt");
+                }
+               
+            }   
+                
+                 
+           
+
         }
 
         private void red_Click(object sender, RoutedEventArgs e)

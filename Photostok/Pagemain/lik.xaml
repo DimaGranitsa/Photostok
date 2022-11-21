@@ -19,7 +19,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Grid.Row="0"  Content="Назад" Name="nazad" Click="nazad_Click"  Width="70" HorizontalAlignment="Left"></Button>
-
+            <Frame Name="f" Navigated="f_Navigated" Grid.Row="1"></Frame>
         </Grid>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -31,8 +31,16 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Background="Transparent" Text="{Binding NAme}" Style="{StaticResource textboxx}"></TextBox>
+                <Label Grid.Row="1" Content="{Binding NAme}" Style="{StaticResource la}"></Label>
+            </Grid>
             <Button Style="{StaticResource b}" Content="История" Name="his" Click="his_Click" Grid.Row="2" Margin="20"></Button>
-            <TextBox Background="Transparent" Text="Имя" Style="{StaticResource textboxx}"></TextBox>
-        </Grid>
+            <Button Style="{StaticResource b}" Content="Добавить фото" Name="dobavit" Click="dobavit_Click" Grid.Row="3" Margin="20"></Button>
+             </Grid>
     </Grid>
 </Page>

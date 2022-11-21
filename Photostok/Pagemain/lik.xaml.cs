@@ -25,7 +25,8 @@ namespace Photostok.Pagemain
         public lik()
         {
             InitializeComponent();
-            
+            this.DataContext = vhod.NAme ;
+
         }
 
         private void his_Click(object sender, RoutedEventArgs e)
@@ -37,6 +38,16 @@ namespace Photostok.Pagemain
         {
           
             NavigationService.Navigate(_page1);
+        }
+
+        private void dobavit_Click(object sender, RoutedEventArgs e)
+        {
+            f.Navigate(new Pagemain.dobavitphoto());
+        }
+
+        private void f_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }

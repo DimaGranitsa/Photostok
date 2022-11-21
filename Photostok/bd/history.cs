@@ -12,19 +12,23 @@ namespace Photostok.bd
     using System;
     using System.Collections.Generic;
     
-    public partial class history
+    public partial class History
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public History()
+        {
+            this.BAsket = new HashSet<BAsket>();
+        }
+    
         public int ID { get; set; }
-        public Nullable<int> IDUser { get; set; }
-        public Nullable<int> IDimage { get; set; }
-        public Nullable<int> IDhistory { get; set; }
-        public Nullable<int> IDnamefotograf { get; set; }
-        public Nullable<int> IDteretory { get; set; }
         public string User1 { get; set; }
         public string image1 { get; set; }
         public string history1 { get; set; }
         public string namefotograf1 { get; set; }
         public string teretory1 { get; set; }
         public string histori1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BAsket> BAsket { get; set; }
     }
 }

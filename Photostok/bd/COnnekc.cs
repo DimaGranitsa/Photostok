@@ -8,6 +8,6 @@ namespace Photostok.bd
 {
     internal class COnnekc
     {
-        public static imageEntities imageEntities = new imageEntities();
+        public static PhotostokEntities photostok = new PhotostokEntities();
     }
 }

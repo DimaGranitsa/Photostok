@@ -13,24 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Photostok
+namespace Photostok.Pagemain
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для dobavitphoto.xaml
     /// </summary>
-    public partial class MainWindow : Window
-        
+    public partial class dobavitphoto : Page
     {
-        
-        public MainWindow()
+        public dobavitphoto()
         {
             InitializeComponent();
-            f.Navigate(new Pagemain.mainPAge());
-        }
-
-        private void f_Navigated(object sender, NavigationEventArgs e)
-        {
-            NavigationService.GetNavigationService(new Pagemain.mainPAge());
         }
     }
 }

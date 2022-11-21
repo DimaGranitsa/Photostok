@@ -13,10 +13,10 @@ namespace Photostok.bd
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class imageEntities : DbContext
+    public partial class PhotostokEntities : DbContext
     {
-        public imageEntities()
-            : base("name=imageEntities")
+        public PhotostokEntities()
+            : base("name=PhotostokEntities")
         {
         }
     
@@ -25,10 +25,10 @@ namespace Photostok.bd
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<history> history { get; set; }
-        public virtual DbSet<image> image { get; set; }
-        public virtual DbSet<karzina> karzina { get; set; }
+        public virtual DbSet<BAsket> BAsket { get; set; }
+        public virtual DbSet<History> History { get; set; }
+        public virtual DbSet<Image> Image { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<user> user { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

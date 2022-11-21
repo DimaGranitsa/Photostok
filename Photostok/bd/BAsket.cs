@@ -12,21 +12,17 @@ namespace Photostok.bd
     using System;
     using System.Collections.Generic;
     
-    public partial class karzina
+    public partial class BAsket
     {
         public int ID { get; set; }
-        public Nullable<int> IDUser { get; set; }
-        public Nullable<int> IDimage { get; set; }
-        public Nullable<int> IDhistory { get; set; }
-        public Nullable<int> IDnamefotograf { get; set; }
-        public Nullable<int> IDteretory { get; set; }
         public string User1 { get; set; }
         public string image1 { get; set; }
-        public string history1 { get; set; }
         public string namefotograf1 { get; set; }
-        public string teretory1 { get; set; }
-        public string histori1 { get; set; }
+        public Nullable<int> IDIMage { get; set; }
+        public Nullable<int> Idhistory { get; set; }
+        public string Prise { get; set; }
     
-        public virtual image image { get; set; }
+        public virtual History History { get; set; }
+        public virtual Image Image { get; set; }
     }
 }

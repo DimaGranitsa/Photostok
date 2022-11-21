@@ -42,7 +42,7 @@ namespace Photostok.Pagemain
 
         private void kar_Click(object sender, RoutedEventArgs e)
         {
-
+            f.Navigate(new Pagemain.busket());
         }
 
         private void f_Navigated(object sender, NavigationEventArgs e)

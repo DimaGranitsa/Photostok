@@ -12,14 +12,8 @@ namespace Photostok.bd
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public user()
-        {
-            this.image = new HashSet<image>();
-        }
-    
         public int Id { get; set; }
         public string NAme { get; set; }
         public string Login { get; set; }
@@ -28,7 +22,6 @@ namespace Photostok.bd
         public Nullable<int> historyid { get; set; }
         public Nullable<int> idUser { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<image> image { get; set; }
+        public virtual Image Image { get; set; }
     }
 }

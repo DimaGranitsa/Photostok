@@ -41,15 +41,15 @@
                 <StackPanel Width="630" >
                     <Label Style="{StaticResource laaa}" Content="Название"></Label>
                     <Border Background="White" BorderBrush="Red" Grid.Row="0" BorderThickness="2" CornerRadius="10">
-                        <TextBlock Text="{Binding name}"   Style="{StaticResource teqw}" ></TextBlock>
+                        <TextBlock x:Name="nameq"  Text="{Binding name}"   Style="{StaticResource teqw}" ></TextBlock>
                     </Border>
                     <Label Style="{StaticResource laaa}" Content="Имя фотографа"></Label>
                     <Border Background="White" BorderBrush="Red" Grid.Row="1" BorderThickness="2" CornerRadius="10">
-                        <TextBlock Text="{Binding nameFhotograf}" Style="{StaticResource teqw}"  ></TextBlock>
+                        <TextBlock x:Name="nameFhotografq" Text="{Binding nameFhotograf}" Style="{StaticResource teqw}"  ></TextBlock>
                     </Border>
                     <Label Style="{StaticResource laaa}" Content="Теретория"></Label>
                     <Border Background="White" BorderBrush="Red" Grid.Row="2" BorderThickness="2" CornerRadius="10">
-                        <TextBlock Text="{Binding teretory}" Style="{StaticResource teqw}"  ></TextBlock>
+                        <TextBlock x:Name="teretoryq" Text="{Binding teretory}" Style="{StaticResource teqw}"  ></TextBlock>
                     </Border>
                     <Label Style="{StaticResource laaa}" Content="iso"></Label>
                     <Border Background="White" BorderBrush="Red" Grid.Row="3" BorderThickness="2" CornerRadius="10">
@@ -65,7 +65,7 @@
                     </Border>
                     <Label Style="{StaticResource laaa}" Content="Цена"></Label>
                     <Border Background="White" BorderBrush="Red" Grid.Row="6" BorderThickness="5" CornerRadius="10">
-                        <TextBlock Text="{Binding price}" Style="{StaticResource teqw}"  ></TextBlock>
+                        <TextBlock x:Name="priceq" Text="{Binding price}" Style="{StaticResource teqw}"  ></TextBlock>
                     </Border>
                 </StackPanel>
                 <Border BorderBrush="SeaGreen" BorderThickness="10">

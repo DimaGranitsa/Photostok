@@ -12,12 +12,13 @@ namespace Photostok.bd
     using System;
     using System.Collections.Generic;
     
-    public partial class image
+    public partial class Image
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public image()
+        public Image()
         {
-            this.karzina = new HashSet<karzina>();
+            this.BAsket = new HashSet<BAsket>();
+            this.User = new HashSet<User>();
         }
     
         public int id { get; set; }
@@ -31,8 +32,9 @@ namespace Photostok.bd
         public string vadergka { get; set; }
         public string price { get; set; }
     
-        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<karzina> karzina { get; set; }
+        public virtual ICollection<BAsket> BAsket { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
     }
 }
